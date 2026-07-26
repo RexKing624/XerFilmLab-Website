@@ -24,11 +24,13 @@ const copy = {
       ['裁切与除尘', '在画面上直接裁切、拉直和旋转。打开除尘后，用圆形修复画笔点击或拖过灰尘；每张照片的修复记录相互独立。'],
       ['导出正片', '点击右上角“导出”，选择格式、色彩空间与保存位置。胶片、相机和镜头信息会随图片元数据一起写出。'],
     ],
-    tipsTitle: '三个小提示',
-    tips: [
-      '自动片基不可靠时，优先手动选择均匀的未曝光胶片区域。',
-      '对整卷应用设置时，默认只同步颜色转换，不同步裁切、旋转和除尘。',
-      '随时使用顶部“对比”检查当前结果与原始负片、自动结果或除尘前后的差异。',
+    adviceTitle: '使用建议',
+    adviceIntro: 'XerFilmLab 使用可重复的数学模型完成去色罩与校色，不依赖 AI 猜色。不同胶片、冲洗方式、扫描仪或翻拍流程都会改变片基与通道分布，因此自动结果也可能不同。',
+    advice: [
+      '自动结果不理想时，请重新框选一块均匀的片基，再使用颜色、明暗、RGB 与曲线手动校正。',
+      '完成一套适合当前冲洗与数字化流程的校色后，可以保存为预设，并应用到同一批胶片。',
+      '需要保留完整胶片外观时可以启用齿孔；填写胶片、相机与镜头信息后，导出时会写入图片元数据。',
+      'XerFilmLab 的优势不是一次性自动猜色，而是提供从片基、校色、除尘、裁切到元数据导出的完整流程。',
     ],
     back: '返回下载',
     releaseNotes: '0.1.0 发布说明',
@@ -55,11 +57,13 @@ const copy = {
       ['クロップとゴミ取り', '画面上でクロップ、傾き補正、回転を行います。ゴミ取りでは円形ブラシでクリックまたはドラッグします。修復内容はコマごとに独立しています。'],
       ['ポジを書き出す', '右上の「書き出し」から形式、色空間、保存先を選びます。フィルム、カメラ、レンズ情報もメタデータとして保存されます。'],
     ],
-    tipsTitle: '3つのヒント',
-    tips: [
-      '自動検出が不安定な場合は、均一な未露光部分を手動で選択してください。',
-      'ロール全体への適用はカラー変換のみ。クロップ、回転、ゴミ取りは自動で同期されません。',
-      '上部の「比較」で、元ネガ、自動結果、ゴミ取り前後をいつでも確認できます。',
+    adviceTitle: '使い方のアドバイス',
+    adviceIntro: 'XerFilmLab のフィルムベース除去と色補正は、AI による推測ではなく再現可能な数理モデルで処理されます。フィルム、現像、スキャナー、カメラ複写の工程によってベース色とチャンネル分布が変わるため、自動結果にも差が生じます。',
+    advice: [
+      '自動結果が適切でない場合は、均一なフィルムベースをもう一度囲み、カラー、トーン、RGB、カーブで手動調整してください。',
+      '現像・デジタル化工程に合う補正ができたらプリセットとして保存し、同じロールや同条件の画像に再利用できます。',
+      'フィルムらしい外観を残す場合はパーフォレーションを有効にできます。フィルム、カメラ、レンズ情報は書き出し時にメタデータへ保存されます。',
+      '一度の自動推測ではなく、フィルムベース、色補正、ゴミ取り、クロップ、メタデータまでを一つの流れで扱えることが XerFilmLab の強みです。',
     ],
     back: 'ダウンロードへ戻る',
     releaseNotes: '0.1.0 リリースノート',
@@ -86,16 +90,43 @@ const copy = {
       ['Crop and heal dust', 'Crop, straighten, and rotate directly on the canvas. In Dust Removal, click or drag the circular healing brush over dust. Healing stays independent for every frame.'],
       ['Export the positive', 'Choose Export in the upper-right, then select format, color space, and destination. Film, camera, and lens details are written into the image metadata.'],
     ],
-    tipsTitle: 'Three useful tips',
-    tips: [
-      'If automatic film-base detection is unreliable, manually select a uniform unexposed area.',
-      'Apply to Roll synchronizes color conversion by default—not crop, rotation, or dust healing.',
-      'Use Compare at any time to inspect the original negative, automatic result, or before/after dust removal.',
+    adviceTitle: 'Workflow advice',
+    adviceIntro: 'XerFilmLab removes the film base and corrects color with reproducible mathematical models—not AI color guessing. Film stock, development, scanner, and camera-scanning workflows all change the base and channel distribution, so automatic results can vary.',
+    advice: [
+      'If the automatic result is not right, select a uniform film-base area again, then refine Color, Tone, RGB, and curves manually.',
+      'Once a correction matches your development and digitization workflow, save it as a preset and reuse it across the same roll or setup.',
+      'Enable sprockets when you want to preserve the complete film look. Film, camera, and lens details can be embedded as metadata during export.',
+      'XerFilmLab is designed around a complete workflow—from film base and color correction through dust healing, crop, presets, and metadata—not a one-click AI guess.',
     ],
     back: 'Back to download',
     releaseNotes: '0.1.0 release notes',
   },
 }
+
+const guideImages = [
+  [{ src: '/assets/guide/install.png', label: 'DMG' }],
+  [
+    { src: '/assets/guide/import-zh.png', label: '中' },
+    { src: '/assets/guide/import-ja.png', label: '日' },
+    { src: '/assets/guide/import-en.png', label: 'EN' },
+  ],
+  [
+    { src: '/assets/guide/convert-zh.png', label: '中' },
+    { src: '/assets/guide/convert-ja.png', label: '日' },
+    { src: '/assets/guide/convert-en.png', label: 'EN' },
+  ],
+  [
+    { src: '/assets/guide/color-zh.png', label: '中' },
+    { src: '/assets/guide/color-ja.png', label: '日' },
+    { src: '/assets/guide/color-en.png', label: 'EN' },
+  ],
+  [
+    { src: '/assets/guide/crop-dust-zh.png', label: '中' },
+    { src: '/assets/guide/crop-dust-ja.png', label: '日' },
+    { src: '/assets/guide/crop-dust-en.png', label: 'EN' },
+  ],
+  [{ src: '/assets/guide/export.png', label: 'Export' }],
+]
 
 const browserLanguage = (navigator.language || '').toLowerCase()
 const detectedLanguage = browserLanguage.startsWith('zh') ? 'zh' : browserLanguage.startsWith('ja') ? 'ja' : 'en'
@@ -186,17 +217,28 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
       <ol class="steps">
         <li v-for="(step, index) in t.steps" :key="step[0]">
           <span>{{ String(index + 1).padStart(2, '0') }}</span>
-          <div>
+          <div class="step-body">
             <h2>{{ step[0] }}</h2>
             <p>{{ step[1] }}</p>
+            <div class="step-gallery" :class="{ single: guideImages[index].length === 1 }">
+              <figure v-for="image in guideImages[index]" :key="image.src">
+                <a :href="image.src" target="_blank" rel="noreferrer">
+                  <img :src="image.src" :alt="`${step[0]} · ${image.label}`" loading="lazy" />
+                </a>
+                <figcaption>{{ image.label }}</figcaption>
+              </figure>
+            </div>
           </div>
         </li>
       </ol>
 
-      <section class="tips">
-        <h2>{{ t.tipsTitle }}</h2>
+      <section class="advice">
+        <div>
+          <h2>{{ t.adviceTitle }}</h2>
+          <p>{{ t.adviceIntro }}</p>
+        </div>
         <ul>
-          <li v-for="tip in t.tips" :key="tip">{{ tip }}</li>
+          <li v-for="item in t.advice" :key="item">{{ item }}</li>
         </ul>
       </section>
 

@@ -168,7 +168,7 @@ header {
 .landing h1,
 .guide h1,
 .steps h2,
-.tips h2 {
+.advice h2 {
   font-family: 'Noto Serif SC', serif;
   font-weight: 500;
 }
@@ -290,7 +290,49 @@ header {
   line-height: 1.85;
 }
 
-.tips {
+.step-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 34px;
+}
+
+.step-gallery.single {
+  grid-template-columns: minmax(0, 720px);
+}
+
+.step-gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.step-gallery a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.step-gallery a:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 36px rgba(20, 22, 19, .14);
+}
+
+.step-gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.step-gallery figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 9px;
+  letter-spacing: .1em;
+}
+
+.advice {
   display: grid;
   grid-template-columns: 1fr 2fr;
   gap: 70px;
@@ -300,10 +342,11 @@ header {
   background: #111310;
 }
 
-.tips h2 { margin: 0; font-size: clamp(30px, 3vw, 44px); }
-.tips ul { margin: 0; padding: 0; list-style: none; }
-.tips li { padding: 0 0 20px 20px; color: #b8bbb1; font-size: 13px; line-height: 1.75; border-left: 1px solid #718ef0; }
-.tips li:last-child { padding-bottom: 0; }
+.advice h2 { margin: 0 0 24px; font-size: clamp(30px, 3vw, 44px); }
+.advice > div > p { margin: 0; color: #b8bbb1; font-size: 13px; line-height: 1.8; }
+.advice ul { margin: 0; padding: 0; list-style: none; }
+.advice li { padding: 0 0 20px 20px; color: #b8bbb1; font-size: 13px; line-height: 1.75; border-left: 1px solid #718ef0; }
+.advice li:last-child { padding-bottom: 0; }
 
 .guide-actions {
   display: flex;
@@ -343,10 +386,21 @@ header {
   .guide { padding-top: 70px; }
   .guide-intro,
   .steps li,
-  .tips { grid-template-columns: 1fr; gap: 24px; }
+  .advice { grid-template-columns: 1fr; gap: 24px; }
   .guide-intro > p:last-child { grid-column: 1; }
   .steps li { padding: 36px 0; }
-  .tips { padding: 38px 28px; }
+  .advice { padding: 38px 28px; }
+  .step-gallery:not(.single) {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 12px;
+    scroll-snap-type: x mandatory;
+  }
+  .step-gallery:not(.single) figure {
+    flex: 0 0 min(82vw, 430px);
+    scroll-snap-align: start;
+  }
 }
 
 @media (max-width: 500px) {
