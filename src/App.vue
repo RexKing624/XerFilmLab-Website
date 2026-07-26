@@ -12,7 +12,7 @@ const copy = {
     subline: '把负片，变回照片。',
     download: '下载 macOS 版',
     version: '0.1.0 · macOS 14+ · 2.6 MB',
-    scrollHint: 'DMG 安装包',
+    repository: '访问下载站仓库',
     guideEyebrow: '快速开始',
     guideTitle: '从负片到正片，六步完成。',
     guideIntro: 'XerFilmLab 的所有调整都建立在当前正片预览上，原始文件始终保持不变。',
@@ -43,7 +43,7 @@ const copy = {
     subline: 'ネガを、写真へ戻す。',
     download: 'macOS 版をダウンロード',
     version: '0.1.0 · macOS 14+ · 2.6 MB',
-    scrollHint: 'DMG インストーラー',
+    repository: 'ダウンロードサイトのリポジトリ',
     guideEyebrow: 'クイックスタート',
     guideTitle: 'ネガからポジまで、6ステップ。',
     guideIntro: 'すべての調整は現在のポジプレビューに適用され、元のファイルは変更されません。',
@@ -74,7 +74,7 @@ const copy = {
     subline: 'Turn negatives back into photographs.',
     download: 'Download for macOS',
     version: '0.1.0 · macOS 14+ · 2.6 MB',
-    scrollHint: 'DMG installer',
+    repository: 'View download-site repository',
     guideEyebrow: 'Quick start',
     guideTitle: 'Negative to positive in six steps.',
     guideIntro: 'Every edit is applied to the current positive preview. Your original file always remains untouched.',
@@ -176,7 +176,13 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
         <span class="mark-divider"></span>
       </div>
 
-      <p class="installer-label">{{ t.scrollHint }}</p>
+      <footer class="home-footer">
+        <p>© 2026 RexKing624</p>
+        <p>Tokyo · Japan</p>
+        <a href="https://github.com/RexKing624/XerFilmLab-Website" target="_blank" rel="noreferrer">
+          {{ t.repository }} <span aria-hidden="true">↗</span>
+        </a>
+      </footer>
     </main>
 
     <main v-else class="guide">
@@ -203,7 +209,7 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
         </ul>
       </section>
 
-      <footer>
+      <footer class="guide-footer">
         <a class="back-link" href="#home">← {{ t.back }}</a>
         <a href="/XerFilmLab-0.1.0.html">{{ t.releaseNotes }} ↗</a>
       </footer>
