@@ -189,11 +189,11 @@ header {
 }
 
 .download-button {
+  position: relative;
   min-width: min(350px, 76vw);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 60px;
+  justify-content: center;
   padding: 19px 22px;
   color: var(--blue-text);
   background: var(--blue);
@@ -206,7 +206,7 @@ header {
   box-shadow: 0 16px 40px rgba(49, 87, 200, .24);
 }
 
-.download-button b { font-size: 22px; font-weight: 400; }
+.download-button b { position: absolute; right: 22px; font-size: 22px; font-weight: 400; }
 .version { margin: 16px 0 0; color: var(--muted); font-size: 10px; letter-spacing: .04em; }
 
 .landing-mark {
@@ -222,45 +222,6 @@ header {
 .mark-negative { border: 1px solid var(--line); border-radius: 50%; transform: rotate(-8deg); }
 .mark-positive { border: 1px solid var(--blue); border-radius: 50%; transform: rotate(8deg); }
 .mark-divider { left: 50% !important; right: auto !important; width: 1px; background: linear-gradient(transparent, var(--blue), transparent); }
-
-.home-footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  min-height: 74px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
-  font-size: 11px;
-}
-
-.home-footer p { margin: 0; }
-.home-footer p:nth-child(2) { text-align: center; }
-.home-footer a { justify-self: end; color: var(--text); }
-.home-footer a span { margin-left: 8px; color: var(--blue); }
-
-.home-footer a,
-.guide-footer a {
-  position: relative;
-}
-
-.home-footer a::after,
-.guide-footer a::after {
-  content: '';
-  position: absolute;
-  right: 100%;
-  bottom: -5px;
-  left: 0;
-  height: 1px;
-  background: currentColor;
-  transition: right .2s ease;
-}
-
-.home-footer a:hover::after,
-.guide-footer a:hover::after { right: 0; }
 
 .guide {
   max-width: 1160px;
@@ -344,17 +305,30 @@ header {
 .tips li { padding: 0 0 20px 20px; color: #b8bbb1; font-size: 13px; line-height: 1.75; border-left: 1px solid #718ef0; }
 .tips li:last-child { padding-bottom: 0; }
 
-.guide-footer {
+.guide-actions {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 36px;
-  border-top: 1px solid var(--line);
   font-size: 12px;
 }
 
-.guide-footer a:last-child { color: var(--muted); }
+.guide-actions a:last-child { color: var(--muted); }
 .back-link { color: var(--blue); }
+
+.site-meta {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  margin-top: clamp(90px, 12vw, 170px);
+  padding: 0 0 12px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.site-meta p { margin: 0; }
+.site-meta p:nth-child(2) { text-align: center; }
+.site-meta a { justify-self: end; color: var(--text); }
+.site-meta a span { margin-left: 8px; color: var(--blue); }
 
 @media (max-width: 760px) {
   header { height: 76px; }
@@ -366,7 +340,6 @@ header {
   .landing-copy { transform: translateY(-4vh); }
   .landing h1 { font-size: clamp(58px, 18vw, 100px); }
   .landing-mark { width: 120vw; }
-  .home-footer { min-height: 64px; font-size: 9px; }
   .guide { padding-top: 70px; }
   .guide-intro,
   .steps li,
@@ -384,10 +357,9 @@ header {
   .theme-switcher { display: none; }
   .eyebrow { letter-spacing: .08em; }
   .download-button { min-width: min(320px, 86vw); }
-  .home-footer { grid-template-columns: auto 1fr auto; column-gap: 12px; }
-  .home-footer p:nth-child(2) { text-align: center; }
-  .home-footer a { max-width: 112px; text-align: right; }
-  .guide-footer { align-items: flex-start; flex-direction: column; gap: 20px; }
+  .guide-actions { align-items: flex-start; flex-direction: column; gap: 20px; }
+  .site-meta { grid-template-columns: auto 1fr auto; column-gap: 12px; font-size: 9px; }
+  .site-meta a { text-align: right; }
 }
 
 @media (prefers-reduced-motion: reduce) {

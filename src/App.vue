@@ -9,10 +9,10 @@ const copy = {
     guide: '使用方法',
     eyebrow: '原生 macOS 胶片负片工作站',
     headline: 'XerFilmLab',
-    subline: '把负片，变回照片。',
-    download: '下载 macOS 版',
+    subline: '全新高效的胶片去色罩全流程，',
+    download: 'macOS',
     version: '0.1.0 · macOS 14+ · 2.6 MB',
-    repository: '访问下载站仓库',
+    repository: 'GitHub',
     guideEyebrow: '快速开始',
     guideTitle: '从负片到正片，六步完成。',
     guideIntro: 'XerFilmLab 的所有调整都建立在当前正片预览上，原始文件始终保持不变。',
@@ -40,10 +40,10 @@ const copy = {
     guide: '使い方',
     eyebrow: 'macOS ネイティブのフィルムワークステーション',
     headline: 'XerFilmLab',
-    subline: 'ネガを、写真へ戻す。',
-    download: 'macOS 版をダウンロード',
+    subline: '新しく効率的なフィルムベース除去ワークフロー。',
+    download: 'macOS',
     version: '0.1.0 · macOS 14+ · 2.6 MB',
-    repository: 'ダウンロードサイトのリポジトリ',
+    repository: 'GitHub',
     guideEyebrow: 'クイックスタート',
     guideTitle: 'ネガからポジまで、6ステップ。',
     guideIntro: 'すべての調整は現在のポジプレビューに適用され、元のファイルは変更されません。',
@@ -71,10 +71,10 @@ const copy = {
     guide: 'How to use',
     eyebrow: 'A native macOS film workstation',
     headline: 'XerFilmLab',
-    subline: 'Turn negatives back into photographs.',
-    download: 'Download for macOS',
+    subline: 'A new, efficient end-to-end film-base removal workflow.',
+    download: 'macOS',
     version: '0.1.0 · macOS 14+ · 2.6 MB',
-    repository: 'View download-site repository',
+    repository: 'View GitHub',
     guideEyebrow: 'Quick start',
     guideTitle: 'Negative to positive in six steps.',
     guideIntro: 'Every edit is applied to the current positive preview. Your original file always remains untouched.',
@@ -97,10 +97,9 @@ const copy = {
   },
 }
 
-const savedLanguage = localStorage.getItem('xerfilmlab-language')
 const browserLanguage = (navigator.language || '').toLowerCase()
 const detectedLanguage = browserLanguage.startsWith('zh') ? 'zh' : browserLanguage.startsWith('ja') ? 'ja' : 'en'
-const language = ref(['zh', 'ja', 'en'].includes(savedLanguage) ? savedLanguage : detectedLanguage)
+const language = ref(detectedLanguage)
 
 const savedTheme = localStorage.getItem('xerfilmlab-theme')
 const theme = ref(savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
@@ -113,7 +112,6 @@ function syncPage() {
 }
 
 watch(language, (value) => {
-  localStorage.setItem('xerfilmlab-language', value)
   document.documentElement.lang = value === 'zh' ? 'zh-CN' : value
 }, { immediate: true })
 
@@ -176,13 +174,6 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
         <span class="mark-divider"></span>
       </div>
 
-      <footer class="home-footer">
-        <p>© 2026 RexKing624</p>
-        <p>Tokyo · Japan</p>
-        <a href="https://github.com/RexKing624/XerFilmLab-Website" target="_blank" rel="noreferrer">
-          {{ t.repository }} <span aria-hidden="true">↗</span>
-        </a>
-      </footer>
     </main>
 
     <main v-else class="guide">
@@ -209,9 +200,17 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
         </ul>
       </section>
 
-      <footer class="guide-footer">
+      <div class="guide-actions">
         <a class="back-link" href="#home">← {{ t.back }}</a>
         <a href="/XerFilmLab-0.1.0.html">{{ t.releaseNotes }} ↗</a>
+      </div>
+
+      <footer class="site-meta">
+        <p>© 2026 RexKing624</p>
+        <p>Tokyo · Japan</p>
+        <a href="https://github.com/RexKing624/XerFilmLab-Website" target="_blank" rel="noreferrer">
+          {{ t.repository }} <span aria-hidden="true">↗</span>
+        </a>
       </footer>
     </main>
   </div>
