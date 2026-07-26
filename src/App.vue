@@ -103,43 +103,35 @@ const copy = {
   },
 }
 
-const guideImages = [
-  [{ src: '/assets/guide/install.png', label: 'DMG' }],
-  [
-    { src: '/assets/guide/import-zh.png', label: '中' },
-    { src: '/assets/guide/import-ja.png', label: '日' },
-    { src: '/assets/guide/import-en.png', label: 'EN' },
-  ],
-  [
-    { src: '/assets/guide/convert-zh.png', label: '中' },
-    { src: '/assets/guide/convert-ja.png', label: '日' },
-    { src: '/assets/guide/convert-en.png', label: 'EN' },
-  ],
-  [
-    { src: '/assets/guide/color-zh.png', label: '中' },
-    { src: '/assets/guide/color-ja.png', label: '日' },
-    { src: '/assets/guide/color-en.png', label: 'EN' },
-  ],
-  [
-    { src: '/assets/guide/crop-dust-zh.png', label: '中' },
-    { src: '/assets/guide/crop-dust-ja.png', label: '日' },
-    { src: '/assets/guide/crop-dust-en.png', label: 'EN' },
-  ],
-  [{ src: '/assets/guide/export.png', label: 'Export' }],
-]
-
 const browserLanguage = (navigator.language || '').toLowerCase()
 const detectedLanguage = browserLanguage.startsWith('zh') ? 'zh' : browserLanguage.startsWith('ja') ? 'ja' : 'en'
 const language = ref(detectedLanguage)
 
 const savedTheme = localStorage.getItem('xerfilmlab-theme')
-const theme = ref(savedTheme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'))
+const theme = ref(savedTheme === 'light' ? 'light' : 'dark')
 const page = ref(window.location.hash === '#guide' ? 'guide' : 'home')
+const activeImage = ref('')
 const t = computed(() => copy[language.value])
+const guideImages = computed(() => {
+  const localizedLabel = language.value === 'zh' ? '中文' : language.value === 'ja' ? '日本語' : 'English'
+  return [
+    { src: '/assets/guide/install.png', label: 'DMG' },
+    { src: `/assets/guide/import-${language.value}.png`, label: localizedLabel },
+    { src: `/assets/guide/convert-${language.value}.png`, label: localizedLabel },
+    { src: `/assets/guide/color-${language.value}.png`, label: localizedLabel },
+    { src: `/assets/guide/crop-dust-${language.value}.png`, label: localizedLabel },
+    { src: '/assets/guide/export.png', label: 'Export' },
+  ]
+})
 
 function syncPage() {
   page.value = window.location.hash === '#guide' ? 'guide' : 'home'
+  activeImage.value = ''
   window.scrollTo({ top: 0, behavior: 'auto' })
+}
+
+function handleKeydown(event) {
+  if (event.key === 'Escape') activeImage.value = ''
 }
 
 watch(language, (value) => {
@@ -152,8 +144,15 @@ watch(theme, (value) => {
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#111310' : '#f3f1e9')
 }, { immediate: true })
 
-onMounted(() => window.addEventListener('hashchange', syncPage))
-onUnmounted(() => window.removeEventListener('hashchange', syncPage))
+onMounted(() => {
+  window.addEventListener('hashchange', syncPage)
+  window.addEventListener('keydown', handleKeydown)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('hashchange', syncPage)
+  window.removeEventListener('keydown', handleKeydown)
+})
 </script>
 
 <template>
@@ -217,17 +216,15 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
       <ol class="steps">
         <li v-for="(step, index) in t.steps" :key="step[0]">
           <span>{{ String(index + 1).padStart(2, '0') }}</span>
+          <figure class="step-media">
+            <button type="button" @click="activeImage = guideImages[index].src">
+              <img :src="guideImages[index].src" :alt="`${step[0]} · ${guideImages[index].label}`" loading="lazy" />
+            </button>
+            <figcaption>{{ guideImages[index].label }}</figcaption>
+          </figure>
           <div class="step-body">
             <h2>{{ step[0] }}</h2>
             <p>{{ step[1] }}</p>
-            <div class="step-gallery" :class="{ single: guideImages[index].length === 1 }">
-              <figure v-for="image in guideImages[index]" :key="image.src">
-                <a :href="image.src" target="_blank" rel="noreferrer">
-                  <img :src="image.src" :alt="`${step[0]} · ${image.label}`" loading="lazy" />
-                </a>
-                <figcaption>{{ image.label }}</figcaption>
-              </figure>
-            </div>
           </div>
         </li>
       </ol>
@@ -255,5 +252,12 @@ onUnmounted(() => window.removeEventListener('hashchange', syncPage))
         </a>
       </footer>
     </main>
+
+    <Transition name="lightbox">
+      <div v-if="activeImage" class="lightbox" role="dialog" aria-modal="true" @click.self="activeImage = ''">
+        <button type="button" aria-label="Close image" @click="activeImage = ''">×</button>
+        <img :src="activeImage" alt="" />
+      </div>
+    </Transition>
   </div>
 </template>

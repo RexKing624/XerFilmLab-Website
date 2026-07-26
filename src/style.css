@@ -264,8 +264,9 @@ header {
 
 .steps li {
   display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 70px;
+  grid-template-columns: 48px minmax(230px, 340px) minmax(0, 1fr);
+  gap: clamp(24px, 4vw, 56px);
+  align-items: start;
   padding: 48px 0;
   border-bottom: 1px solid var(--line);
 }
@@ -290,47 +291,79 @@ header {
   line-height: 1.85;
 }
 
-.step-gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  margin-top: 34px;
-}
-
-.step-gallery.single {
-  grid-template-columns: minmax(0, 720px);
-}
-
-.step-gallery figure {
-  min-width: 0;
+.step-media {
+  width: 100%;
   margin: 0;
 }
 
-.step-gallery a {
+.step-media button {
   display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  padding: 0;
   overflow: hidden;
   border: 1px solid var(--line);
   background: #fff;
+  cursor: zoom-in;
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
-.step-gallery a:hover {
+.step-media button:hover {
   transform: translateY(-3px);
   box-shadow: 0 16px 36px rgba(20, 22, 19, .14);
 }
 
-.step-gallery img {
+.step-media img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: contain;
 }
 
-.step-gallery figcaption {
+.step-media figcaption {
   margin-top: 9px;
   color: var(--muted);
   font-size: 9px;
   letter-spacing: .1em;
 }
+
+.lightbox {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: clamp(18px, 4vw, 60px);
+  background: rgba(5, 6, 5, .88);
+  backdrop-filter: blur(12px);
+}
+
+.lightbox > button {
+  position: absolute;
+  top: 22px;
+  right: 26px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(255, 255, 255, .25);
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(0, 0, 0, .3);
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.lightbox > img {
+  display: block;
+  max-width: 94vw;
+  max-height: 88vh;
+  object-fit: contain;
+  box-shadow: 0 30px 90px rgba(0, 0, 0, .45);
+}
+
+.lightbox-enter-active,
+.lightbox-leave-active { transition: opacity .2s ease; }
+.lightbox-enter-from,
+.lightbox-leave-to { opacity: 0; }
 
 .advice {
   display: grid;
@@ -385,22 +418,18 @@ header {
   .landing-mark { width: 120vw; }
   .guide { padding-top: 70px; }
   .guide-intro,
-  .steps li,
   .advice { grid-template-columns: 1fr; gap: 24px; }
   .guide-intro > p:last-child { grid-column: 1; }
-  .steps li { padding: 36px 0; }
+  .steps li {
+    grid-template-columns: 38px minmax(0, 1fr);
+    gap: 22px;
+    padding: 36px 0;
+  }
+  .steps li > span { grid-row: 1 / 3; }
+  .step-media,
+  .step-body { grid-column: 2; }
+  .step-media { max-width: 430px; }
   .advice { padding: 38px 28px; }
-  .step-gallery:not(.single) {
-    display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    padding-bottom: 12px;
-    scroll-snap-type: x mandatory;
-  }
-  .step-gallery:not(.single) figure {
-    flex: 0 0 min(82vw, 430px);
-    scroll-snap-align: start;
-  }
 }
 
 @media (max-width: 500px) {
