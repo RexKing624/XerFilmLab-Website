@@ -218,7 +218,6 @@ onUnmounted(() => {
             <button type="button" @click="activeImage = guideImages[index].src">
               <img :src="guideImages[index].src" :alt="`${step[0]} · ${guideImages[index].label}`" loading="lazy" />
             </button>
-            <figcaption>{{ guideImages[index].label }}</figcaption>
           </figure>
           <div class="step-body">
             <h2>{{ step[0] }}</h2>
@@ -243,7 +242,7 @@ onUnmounted(() => {
       </div>
 
       <footer class="site-meta">
-        <p>© 2026 RexKing624</p>
+        <a class="copyright-link" href="https://xergnik.com">© 2026 RexKing624</a>
         <p>Tokyo · Japan</p>
         <a href="https://github.com/RexKing624/XerFilmLab-Website" target="_blank" rel="noreferrer">
           {{ t.repository }} <span aria-hidden="true">↗</span>

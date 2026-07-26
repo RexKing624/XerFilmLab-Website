@@ -12,6 +12,7 @@
   --line: rgba(22, 24, 21, .16);
   --blue: #3157c8;
   --blue-text: #fff;
+  --media-shadow: 0 16px 36px rgba(0, 0, 0, .22);
 }
 
 html[data-theme='dark'] {
@@ -23,6 +24,7 @@ html[data-theme='dark'] {
   --line: rgba(243, 241, 233, .16);
   --blue: #718ef0;
   --blue-text: #0e1220;
+  --media-shadow: 0 16px 38px rgba(255, 255, 255, .13);
 }
 
 * { box-sizing: border-box; }
@@ -299,12 +301,13 @@ header {
 .step-media button {
   display: block;
   width: 100%;
-  aspect-ratio: 4 / 3;
+  max-height: 260px;
   padding: 0;
   overflow: hidden;
-  border: 1px solid var(--line);
-  background: #fff;
+  border: 0;
+  background: transparent;
   cursor: zoom-in;
+  box-shadow: var(--media-shadow);
   transition: transform .2s ease, box-shadow .2s ease;
 }
 
@@ -316,15 +319,9 @@ header {
 .step-media img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-.step-media figcaption {
-  margin-top: 9px;
-  color: var(--muted);
-  font-size: 9px;
-  letter-spacing: .1em;
+  max-height: 260px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .lightbox {
@@ -404,6 +401,7 @@ header {
 .site-meta p { margin: 0; }
 .site-meta p:nth-child(2) { text-align: center; }
 .site-meta a { justify-self: end; color: var(--text); }
+.site-meta .copyright-link { justify-self: start; color: var(--muted); }
 .site-meta a span { margin-left: 8px; color: var(--blue); }
 
 @media (max-width: 760px) {
