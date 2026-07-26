@@ -107,8 +107,7 @@ const browserLanguage = (navigator.language || '').toLowerCase()
 const detectedLanguage = browserLanguage.startsWith('zh') ? 'zh' : browserLanguage.startsWith('ja') ? 'ja' : 'en'
 const language = ref(detectedLanguage)
 
-const savedTheme = localStorage.getItem('xerfilmlab-theme')
-const theme = ref(savedTheme === 'light' ? 'light' : 'dark')
+const theme = ref('dark')
 const page = ref(window.location.hash === '#guide' ? 'guide' : 'home')
 const activeImage = ref('')
 const t = computed(() => copy[language.value])
@@ -139,7 +138,6 @@ watch(language, (value) => {
 }, { immediate: true })
 
 watch(theme, (value) => {
-  localStorage.setItem('xerfilmlab-theme', value)
   document.documentElement.dataset.theme = value
   document.querySelector('meta[name="theme-color"]')?.setAttribute('content', value === 'dark' ? '#111310' : '#f3f1e9')
 }, { immediate: true })
