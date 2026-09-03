@@ -263,7 +263,7 @@ onUnmounted(() => {
       </div>
 
       <footer class="site-meta">
-        <a class="copyright-link" href="https://xergnik.com">© 2026 RexKing624</a>
+        <a class="copyright-link" href="https://xergnik.com/">© 2026 XER_GNIK</a>
         <p>Tokyo · Japan</p>
         <a href="https://github.com/RexKing624/XerFilmLab-Website" target="_blank" rel="noreferrer">
           {{ t.repository }} <span aria-hidden="true">↗</span>
