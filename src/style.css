@@ -391,7 +391,8 @@ header {
 }
 
 .release-history > p { margin: 0; color: var(--muted); }
-.release-history > div { display: flex; align-items: center; gap: 26px; }
+.release-history > .release-history-list { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
+.release-history-row { display: flex; align-items: center; gap: 26px; flex-wrap: wrap; }
 .release-history strong { font-weight: 500; }
 .release-history a { color: var(--blue); }
 

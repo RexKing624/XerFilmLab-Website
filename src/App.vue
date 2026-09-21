@@ -250,10 +250,12 @@ onUnmounted(() => {
 
       <section class="release-history">
         <p>{{ t.historyTitle }}</p>
-        <div>
-          <strong>{{ t.historyVersion }}</strong>
-          <a href="/downloads/XerFilmLab-1.0.dmg">{{ t.historyDownload }} ↓</a>
-          <a href="/XerFilmLab-1.0.html">{{ t.historyNotes }} ↗</a>
+        <div class="release-history-list">
+          <div v-for="version in ['1.1', '1.0']" :key="version" class="release-history-row">
+            <strong>XerFilmLab {{ version }}</strong>
+            <a :href="`/downloads/XerFilmLab-${version}.dmg`">{{ t.historyDownload }} ↓</a>
+            <a :href="`/XerFilmLab-${version}.html`">{{ t.historyNotes }} ↗</a>
+          </div>
         </div>
       </section>
 
