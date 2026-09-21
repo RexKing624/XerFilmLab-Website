@@ -4,30 +4,17 @@ IMPORTANT: This file was signed by Sparkle. Any modifications to this file requi
     <channel>
         <title>XerFilmLab</title>
         <item>
-            <title>1.1</title>
-            <pubDate>Wed, 29 Jul 2026 07:37:04 +0900</pubDate>
+            <title>1.2</title>
+            <pubDate>Mon, 21 Sep 2026 20:22:35 +0900</pubDate>
             <link>https://lab.xergnik.com/</link>
-            <sparkle:version>2</sparkle:version>
-            <sparkle:shortVersionString>1.1</sparkle:shortVersionString>
+            <sparkle:version>3</sparkle:version>
+            <sparkle:shortVersionString>1.2</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="LYsruLDO/n9uv3WqxEQOBPwl3kNH4tARIiyWPArQsOScK2kQScjQ/yacDk/vvDYuAsg/GdT8he08Fd7oYl5KCw==" sparkle:length="1344">https://lab.xergnik.com/XerFilmLab-1.1.html</sparkle:releaseNotesLink>
-            <enclosure url="https://lab.xergnik.com/XerFilmLab-1.1.zip" length="2623633" type="application/octet-stream" sparkle:edSignature="yRA3MBDnA2zOITuHrUBofqK/oXNkR6JVTVvpYah9GGIwd/QlPaqItl1iRgFhsHTX8N+3UxM+gN7F3GoJg5sVDA=="></enclosure>
-            <sparkle:deltas>
-                <enclosure url="https://lab.xergnik.com/XerFilmLab2-1.delta" sparkle:deltaFrom="1" length="194966" type="application/octet-stream" sparkle:deltaFromSparkleExecutableSize="977616" sparkle:deltaFromSparkleLocales="de,he,ar,el,ja,fa,uk" sparkle:edSignature="dLHnr+zN31OfjqVoiqOkodcJ08Ht0rnE/8OKVVHoXjcm9gg4ySOWBCXQ2JAmt1rF7C/FKqs52snrWqJwE/QrCA=="></enclosure>
-            </sparkle:deltas>
-        </item>
-        <item>
-            <title>1.0</title>
-            <pubDate>Wed, 29 Jul 2026 07:05:29 +0900</pubDate>
-            <link>https://lab.xergnik.com/</link>
-            <sparkle:version>1</sparkle:version>
-            <sparkle:shortVersionString>1.0</sparkle:shortVersionString>
-            <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <sparkle:releaseNotesLink sparkle:edSignature="TkX2/yYj+HOtu8JKePMKvJu38y+Wuz+K7fpgAUMbw5dbQ+eNNe/V4fdH8k6GMjXlB+SJKG0feHiZQERzcDP/Bg==" sparkle:length="1455">https://lab.xergnik.com/XerFilmLab-1.0.html</sparkle:releaseNotesLink>
-            <enclosure url="https://lab.xergnik.com/XerFilmLab-1.0.zip" length="2619066" type="application/octet-stream" sparkle:edSignature="XXSfea4nTNf3R2n4VWw5ekEHuHAqPmOes7zqwHmYJ01beJA7JrHKuKPYudpUa3E1LaxU1C9xObJUtHRxp7kqDg=="></enclosure>
+            <sparkle:releaseNotesLink sparkle:edSignature="m3asNYfWyDSmO5mJhnwE5NGve6ziU7zjWwGX2/wAc/drRc0lUFjvFXckJ7Amj3n7e1sXaLqCVhq7SiZViaNaAQ==" sparkle:length="1473">https://lab.xergnik.com/XerFilmLab-1.2.html</sparkle:releaseNotesLink>
+            <enclosure url="https://lab.xergnik.com/XerFilmLab-1.2.zip" length="2655845" type="application/octet-stream" sparkle:edSignature="UFQRUDc3K7lt3xdMkKWYjfC8WxM+0NivImY+IJ96W+orFUcmqT42CHfXoE0ljRqwp4mtS//qhaWm/9ykTzEJCA=="></enclosure>
         </item>
     </channel>
 </rss><!-- sparkle-signatures:
-edSignature: ygoWP3iVjDBgljSQ8lk72BSzNg+EoUN5w4xksIPjfvjKq4hjXtU0fy53xvUBjGZqAfx8rKPZDrwWqdzG2Rf3Bw==
-length: 2588
+edSignature: bE0ewEJmWnIgWctSCe8ft7VEs7QvgBjGX2ikrUprHAjm9AEj6vUqlkoXuBp9ubfI1RUn7ZcaLgA/aWpuVkaPDg==
+length: 1293
 -->

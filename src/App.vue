@@ -11,7 +11,7 @@ const copy = {
     headline: 'XerFilmLab',
     subline: '全新高效的胶片去色罩全流程，',
     download: 'macOS',
-    version: '1.1 · macOS 14+ · 2.6 MB',
+    version: '1.2 · macOS 14+ · 2.8 MB',
     repository: 'GitHub',
     guideEyebrow: '快速开始',
     guideTitle: '从负片到正片，六步完成。',
@@ -33,7 +33,7 @@ const copy = {
       'XerFilmLab 的优势不是一次性自动猜色，而是提供从片基、校色、除尘、裁切到元数据导出的完整流程。',
     ],
     back: '返回下载',
-    releaseNotes: '1.1 发布说明',
+    releaseNotes: '1.2 发布说明',
     historyTitle: '历史版本',
     historyVersion: 'XerFilmLab 1.0',
     historyDownload: '下载 DMG',
@@ -48,7 +48,7 @@ const copy = {
     headline: 'XerFilmLab',
     subline: '新しく効率的なフィルムベース除去ワークフロー。',
     download: 'macOS',
-    version: '1.1 · macOS 14+ · 2.6 MB',
+    version: '1.2 · macOS 14+ · 2.8 MB',
     repository: 'GitHub',
     guideEyebrow: 'クイックスタート',
     guideTitle: 'ネガからポジまで、6ステップ。',
@@ -70,7 +70,7 @@ const copy = {
       '一度の自動推測ではなく、フィルムベース、色補正、ゴミ取り、クロップ、メタデータまでを一つの流れで扱えることが XerFilmLab の強みです。',
     ],
     back: 'ダウンロードへ戻る',
-    releaseNotes: '1.1 リリースノート',
+    releaseNotes: '1.2 リリースノート',
     historyTitle: '過去のバージョン',
     historyVersion: 'XerFilmLab 1.0',
     historyDownload: 'DMG をダウンロード',
@@ -85,7 +85,7 @@ const copy = {
     headline: 'XerFilmLab',
     subline: 'A new, efficient end-to-end film-base removal workflow.',
     download: 'macOS',
-    version: '1.1 · macOS 14+ · 2.6 MB',
+    version: '1.2 · macOS 14+ · 2.8 MB',
     repository: 'View GitHub',
     guideEyebrow: 'Quick start',
     guideTitle: 'Negative to positive in six steps.',
@@ -107,7 +107,7 @@ const copy = {
       'XerFilmLab is designed around a complete workflow—from film base and color correction through dust healing, crop, presets, and metadata—not a one-click AI guess.',
     ],
     back: 'Back to download',
-    releaseNotes: '1.1 release notes',
+    releaseNotes: '1.2 release notes',
     historyTitle: 'Previous versions',
     historyVersion: 'XerFilmLab 1.0',
     historyDownload: 'Download DMG',
@@ -201,7 +201,7 @@ onUnmounted(() => {
         <p class="eyebrow">{{ t.eyebrow }}</p>
         <h1>{{ t.headline }}</h1>
         <p class="subline">{{ t.subline }}</p>
-        <a class="download-button" href="/downloads/XerFilmLab-1.1.dmg">
+        <a class="download-button" href="/downloads/XerFilmLab-1.2.dmg">
           <span>{{ t.download }}</span>
           <b aria-hidden="true">↓</b>
         </a>
@@ -259,7 +259,7 @@ onUnmounted(() => {
 
       <div class="guide-actions">
         <a class="back-link" href="#home">← {{ t.back }}</a>
-        <a href="/XerFilmLab-1.1.html">{{ t.releaseNotes }} ↗</a>
+        <a href="/XerFilmLab-1.2.html">{{ t.releaseNotes }} ↗</a>
       </div>
 
       <footer class="site-meta">
